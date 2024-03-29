@@ -46,6 +46,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+    - uses: ilammy/msvc-dev-cmd@v1
+      if: matrix.os == 'windows-latest'
     - uses: Bacondish2023/setup-googletest@v1
       with:
         tag: v1.14.0
