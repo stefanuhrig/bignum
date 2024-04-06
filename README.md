@@ -1,5 +1,7 @@
 # A C++-11 single-header generic arbitrary-precision number library
 
+[![codecov](https://codecov.io/github/stefanuhrig/bignum/graph/badge.svg?token=LKHJZ14LTD)](https://codecov.io/github/stefanuhrig/bignum)
+
 ## About
 
 This is a C++-11 compliant generic single-header arbitrary-precision 
