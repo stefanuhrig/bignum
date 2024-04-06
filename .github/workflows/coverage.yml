@@ -37,7 +37,7 @@ jobs:
     - name: Upload coverage report to codecov
       uses: codecov/codecov-action@v4
       with:
-        file: ./coverage.xml
-        working-directory: ${{github.workspace}}/build
+        file: build/coverage.xml
+        working-directory: ${{github.workspace}}
       env:
         CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
