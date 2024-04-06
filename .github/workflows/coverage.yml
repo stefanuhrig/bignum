@@ -17,9 +17,6 @@ jobs:
       with:
         tag: v1.14.0
 
-    - name: Install gcovr
-      run: pip install gcovr
-
     - name: Configure CMake
       run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=Debug -DBUILD_UNIT_TESTS=OFF -DBUILD_COVERAGE=ON
 
@@ -29,10 +26,6 @@ jobs:
     - name: Test
       working-directory: ${{github.workspace}}/build
       run: ctest -C Debug
-
-    - name: Generate coverage report
-      working-directory: ${{github.workspace}}/build
-      run: gcovr -r .. -f ../include --cobertura > coverage.xml
 
     - name: Upload coverage report to codecov
       uses: codecov/codecov-action@v4
