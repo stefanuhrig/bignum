@@ -30,7 +30,8 @@ jobs:
     - name: Upload coverage report to codecov
       uses: codecov/codecov-action@v4
       with:
-        file: build/coverage.xml
+        disable_search: true
+        file: "#home#runner#work#bignum#bignum#include#bignum.h.gcov"
         working-directory: ${{github.workspace}}
       env:
         CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
