@@ -192,6 +192,27 @@ TEST(StoreTest, copyAssignmentHeapGrow)
     }
 }
 //------------------------------------------------------------------------------
+TEST(StoreTest, copyAssignmentKeepHeap)
+{
+    bn::impl::Store source;
+    source.resize(bn::impl::Store::smemsize);
+    for (std::size_t i = 0; i < source.size(); ++i) {
+        source[i] = static_cast<bn::impl::digit_t>(i);
+    }
+
+    bn::impl::Store target;
+    target.resize(bn::impl::Store::smemsize + 1);
+    for (std::size_t i = 0; i < target.size(); ++i) {
+        target[i] = static_cast<bn::impl::digit_t>(i + 1);
+    }
+
+    target = source;
+    ASSERT_EQ(source.size(), target.size());
+    for (std::size_t i = 0; i < source.size(); ++i) {
+        EXPECT_EQ(source[i], target[i]);
+    }
+}
+//------------------------------------------------------------------------------
 TEST(StoreTest, moveAssignmentSMemSMem)
 {
     bn::impl::Store store;
